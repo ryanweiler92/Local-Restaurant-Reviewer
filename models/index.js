@@ -7,15 +7,15 @@ User.hasMany(Review, {
 });
 
 Restaurant.hasMany(Review, {
-    foriegnKey: 'restaurant_id'
+    foreignKey: 'restaurant_id'
 });
 
 Review.belongsTo(User, {
-    foriegnKey: 'user_id'
+    foreignKey: 'user_id'
 });
 
 Review.belongsTo(Restaurant, {
-    foriegnKey: 'resaurant_id'
+    foreignKey: 'restaurant_id'
 });
 
 module.exports = { User, Restaurant, Review}
