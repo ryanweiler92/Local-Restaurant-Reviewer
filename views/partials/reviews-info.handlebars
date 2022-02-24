@@ -2,8 +2,16 @@
     <div class="card align-items-center bg-light">
         <div class="card-block text-center pb-1">
             <h5 class="card-title">{{restaurant.name}}</h4>
-            <h6 class="card-subtitle mb-2 text-muted">Reviewed by: {{user.username}} on {{format_date created_at}}</h5>
-            <p class="card-text bg-light">{{review}}</p>
+            <h6 class="card-subtitle mb-2 text-muted">Reviewed by: {{user.username}} on {{format_date created_at}}</h5>          
+            <ul>
+                <li>Overall Rating: {{overall_rating}}</li>
+                <li>Atmosphere Rating: {{atmosphere_rating}}</li>
+                <li>Food Rating: {{food_rating}}</li>
+                <li>Service Rating {{service_rating}}</li>
+            </ul>
+            <p class="card-text bg-light">Review: {{review}}</p>
         </div>
     </div>
 </div>
+
+
