@@ -59,4 +59,36 @@ router.get('/', (req, res) => {
       })
   })
 
+  //post review for restaurant
+  router.get('/post/:id', withAuth, (req, res) => {
+    Restaurant.findByPk(req.params.id, {
+        include: [
+            {
+            model: Review,
+            attributes: ['id', 'overall_rating', 'atmosphere_rating', 'food_rating',
+          'service_rating', 'review', 'user_id', 'restaurant_id', 'created_at'],
+          include: {
+              model: User,
+              attributes: ['username']
+          }
+          }
+        ]
+    })
+    .then(dbRestaurantData => {
+        if (dbRestaurantData) {
+            const restaurant = dbRestaurantData.get({ plain: true });
+
+            res.render('single-restaurant', {
+                restaurant,
+                loggedIn: true
+            });
+        } else {
+            res.status(404).end();
+        }
+    })
+    .catch(err => {
+        res.status(500).json(err);
+    })
+})
+
 module.exports = router;

@@ -45,4 +45,45 @@ router.get('/', withAuth, (req, res) => {
       });
   });
 
+
+  //edit review
+  router.get('/edit/:id', withAuth, (req, res) => {
+    Review.findByPk(req.params.id, {
+        attributes: [
+          'id',
+          'overall_rating',
+          'atmosphere_rating',
+          'food_rating',
+          'service_rating',
+          'review',
+          'user_id',
+          'restaurant_id',
+          'created_at'
+        ],
+      include: [
+        {
+          model: Restaurant,
+          attributes: ['id', 'name']
+        },
+        {
+          model: User,
+          attributes: ['username']
+        }
+      ]
+    })
+      .then(dbReviewData => {
+        const review = dbReviewData.get({ plain: true });
+
+        res.render('edit-review', {
+            review,
+            loggedIn: req.session.loggedIn
+        })
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
+
+
   module.exports = router;
