@@ -1,0 +1,83 @@
+<div class="container mt-4 bg-light rounded d-none" id="form-container">
+    <form class="pb-2" id="post-form">
+        <div class="mb-3 pt-2">
+            <h3>Submit a New Restaurant</h3>
+        </div>
+        <div class="mb-3">
+            <h4>Restaurant Name</h4>
+            {{!-- <label for="title" class="form-label">Restaurant Name</label> --}}
+            <input type="text" class="form-control" id="restaurant-title" name="restaurant-name" placeholder="Restaurant Name">
+        </div>
+        <div>
+            <h4>Cuisine</h4>
+        </div>
+        <div class="mb-3 form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="fastFoodRadio" name="cuisine" value="fast food"> 
+            <label class="form-check-label" for="fastFoodRadio">Fast Food</label>
+        </div>
+        <div class="mb-3 form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="seaFoodRadio" name="cuisine" value="sea food"> 
+            <label class="form-check-label" for="seaFooodRadio">Sea Food</label>
+        </div>
+        <div class="mb-3 form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="italianRadio" name="cuisine" value="italian"> 
+            <label class="form-check-label" for="italianRadio">Italian</label>
+        </div>
+        <div class="mb-3 form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="chineseRadio" name="cuisine" value="chinese"> 
+            <label class="form-check-label" for="chineseRadio">Chinese</label>
+        </div>
+        <div class="mb-3 form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="steakHouseRadio" name="cuisine" value="steak house"> 
+            <label class="form-check-label" for="steakHouseRadio">Steak House</label>
+        </div>
+        <div class="mb-3 form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="otherRadio" name="cuisine" value="other"> 
+            <label class="form-check-label" for="otherRadio">Other</label>
+        </div>
+        <div>
+            <h4>Price Range</h4>
+        </div>
+        <div class="mb-3 form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="lowPriceRadio" name="price-range" value="$"> 
+            <label class="form-check-label" for="lowPriceRadio">$</label>
+        </div>
+        <div class="mb-3 form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="mediumPriceRadio" name="price-range" value="$$"> 
+            <label class="form-check-label" for="mediumPriceRadio">$$</label>
+        </div>
+        <div class="mb-3 form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="highPriceRadio" name="price-range" value="$$$"> 
+            <label class="form-check-label" for="highPriceRadio">$$$</label>
+        </div>
+        <div class="mb-3 form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="richPriceRadio" name="price-range" value="$$$"> 
+            <label class="form-check-label" for="richPriceRadio">$$$$</label>
+        </div>
+        <div class="mb-3">
+            <h4>Address</h4>
+            <input type="text" class="form-control" id="address" name="address" placeholder="Address">
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary" id="submit-post-btn">Submit</button>
+        </div>
+    </form>
+</div>
+
+
+<div class="container mt-2 mb-2 d-flex justify-content-center">
+    <button type="button" class="btn btn-primary btn-lg" id="new-post-btn">+ New Restaurant</button>
+</div>
+<div class="d-flex justify-content-center">
+    <h4 class="bg-light rounded p-2">Your Reviews</h4>
+</div>
+<ol class="post-list list-group bg-info">
+  {{#each reviews as |review|}}
+  <li class="list-group-item bg-info">
+    {{> reviews-info review }}
+  </li>
+  {{/each}}
+</ol>
+
+
+<script src="/javascript/new-restaurant.js"></script>
