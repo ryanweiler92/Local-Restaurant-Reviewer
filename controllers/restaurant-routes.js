@@ -34,12 +34,12 @@ router.get('/', (req, res) => {
               {
               model: Review,
               attributes: ['id', 'overall_rating', 'atmosphere_rating', 'food_rating',
-            'service_rating', 'review', 'user_id', 'restaurant_id'],
+            'service_rating', 'review', 'user_id', 'restaurant_id', 'created_at'],
             include: {
                 model: User,
                 attributes: ['username']
             }
-              }
+            }
           ]
       })
       .then(dbRestaurantData => {

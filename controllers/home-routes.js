@@ -5,6 +5,17 @@ const { User, Restaurant, Review } = require('../models');
 //get reviews for homepage
 router.get('/', (req, res) => {
     Review.findAll({
+      attributes: [
+        'id',
+        'overall_rating',
+        'atmosphere_rating',
+        'food_rating',
+        'service_rating',
+        'review',
+        'user_id',
+        'restaurant_id',
+        'created_at'
+      ],
       include: [
         {
           model: Restaurant,

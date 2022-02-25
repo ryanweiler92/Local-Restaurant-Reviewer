@@ -1,7 +1,8 @@
 <div class="container mt-3">
+    {{#each this}}
     <div class="card align-items-center bg-light">
         <div class="card-block text-center pb-1">
-            <h5 class="card-title">{{restaurant.name}}</h4>
+            <h5 class="card-title">{{restaurant.name}}</h5>
             <h6 class="card-subtitle mb-2 text-muted">Reviewed by: {{user.username}} on {{format_date created_at}}</h5>          
             <ul>
                 <li>Overall Rating: {{overall_rating}}</li>
@@ -12,6 +13,7 @@
             <p class="card-text bg-light">Review: {{review}}</p>
         </div>
     </div>
+    {{/each}}
 </div>
 
 

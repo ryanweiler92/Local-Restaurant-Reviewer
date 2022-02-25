@@ -9,6 +9,17 @@ router.get('/', withAuth, (req, res) => {
         where: {
             user_id: req.session.user_id
         },
+        attributes: [
+          'id',
+          'overall_rating',
+          'atmosphere_rating',
+          'food_rating',
+          'service_rating',
+          'review',
+          'user_id',
+          'restaurant_id',
+          'created_at'
+        ],
       include: [
         {
           model: Restaurant,
