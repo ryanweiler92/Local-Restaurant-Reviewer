@@ -22,6 +22,9 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/restaurants">Restaurants</a>
+        </li>
         {{#if loggedIn}}
         <li class="nav-item">
           <a class="nav-link" href="/dashboard">Dashboard</a>
@@ -29,9 +32,7 @@
         <li class="nav-item">
           <button class="btn btn-outline-danger" type="submit" id="logout">Logout</button>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/submit-restaurant">Submit a Restaurant</a>
-        </li>
+
         {{else}}
         <li class="nav-item">
           <a class="nav-link" href="/login">Login</a>

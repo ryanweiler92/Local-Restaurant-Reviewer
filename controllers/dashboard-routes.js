@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 const { User, Restaurant, Review } = require('../models');
 const withAuth = require('../utils/auth');
 
-//get reviews for homepage
+//get reviews for dashboard
 router.get('/', withAuth, (req, res) => {
     Review.findAll({
         where: {

@@ -1,0 +1,10 @@
+<div class="d-flex justify-content-center mt-2">
+    <h4 class="bg-light rounded p-2">Restaurants</h4>
+</div>
+<ol class="post-list list-group bg-info">
+  {{#each restaurants as |restaurant|}}
+  <li class="list-group-item bg-info">
+    {{> restaurants-info restaurant }}
+  </li>
+  {{/each}}
+</ol>
