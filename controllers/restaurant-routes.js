@@ -30,6 +30,7 @@ router.get('/', (req, res) => {
   //see reviews for restaurant
   router.get('/reviews/:id', withAuth, (req, res) => {
       Restaurant.findByPk(req.params.id, {
+
           include: [
               {
               model: Review,
@@ -62,6 +63,10 @@ router.get('/', (req, res) => {
   //post review for restaurant
   router.get('/post/:id', withAuth, (req, res) => {
     Restaurant.findByPk(req.params.id, {
+        attributes: [
+            'id',
+            'name',
+        ],
         include: [
             {
             model: Review,
@@ -78,7 +83,7 @@ router.get('/', (req, res) => {
         if (dbRestaurantData) {
             const restaurant = dbRestaurantData.get({ plain: true });
 
-            res.render('single-restaurant', {
+            res.render('post-review', {
                 restaurant,
                 loggedIn: true
             });
