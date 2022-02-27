@@ -1,11 +1,3 @@
-// initialize with defaults
-// $(document).on('ready', function () {
-//     $("#atmosphere-rating").rating();
-//     $("#cuisine-rating").rating({
-//         containerClass: 'is-star'
-//     });
-// })
-
 
 async function newFormHandler(event){
     event.preventDefault();
@@ -14,7 +6,7 @@ async function newFormHandler(event){
     const food_rating = document.querySelector('input[name=food]').value;
     const service_rating = document.querySelector('[name=service]').value;
     const overall_rating = document.querySelector('input[name=overall').value
-    const review = document.querySelector('input[name=review').value.trim();
+    const review = document.querySelector('textarea[name=review').value.trim();
     const restaurant_id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
       ];

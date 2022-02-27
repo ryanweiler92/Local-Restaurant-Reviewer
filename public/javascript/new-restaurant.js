@@ -1,9 +1,13 @@
 function newPostFormDisplay() {
     document.getElementById('form-container').setAttribute("class", "container mt-4 bg-light rounded")
+    document.querySelector('#new-post-btn').classList.add("d-none")
 };
+
 
 async function newFormHandler(event){
     event.preventDefault();
+
+    
 
     const name = document.querySelector('input[name=restaurant-name').value.trim();
     const cuisine = document.querySelector('input[type=radio][name=cuisine]:checked').value;
