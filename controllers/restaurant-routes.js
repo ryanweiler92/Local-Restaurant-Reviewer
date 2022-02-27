@@ -3,7 +3,34 @@ const sequelize = require('../config/connection');
 const { User, Restaurant, Review } = require('../models');
 const withAuth = require('../utils/auth');
 
-//get all restaurants
+// //get all restaurants
+// router.get('/', (req, res) => {
+//     Restaurant.findAll({
+//       include: [
+//         {
+//           model: Review,
+//           attributes: ['id']
+//         }
+//       ],
+//       order: [
+//         ['created_at', 'DESC']
+//       ]
+//     })
+//       .then(dbRestaurantData => {
+//         const restaurants = dbRestaurantData.map(restaurant => restaurant.get({ plain: true }));
+
+//         res.render('restaurants', {
+//             restaurants,
+//             loggedIn: req.session.loggedIn
+//         })
+//       })
+//       .catch(err => {
+//         console.log(err);
+//         res.status(500).json(err);
+//       });
+//   });
+
+  //THIS IS A TEST, USE CODE ABOVE IF FAILS
 router.get('/', (req, res) => {
     Restaurant.findAll({
       include: [
@@ -11,6 +38,9 @@ router.get('/', (req, res) => {
           model: Review,
           attributes: ['id']
         }
+      ],
+      order: [
+        ['created_at', 'DESC']
       ]
     })
       .then(dbRestaurantData => {
