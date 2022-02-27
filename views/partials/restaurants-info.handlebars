@@ -2,11 +2,11 @@
     <div class="card align-items-center bg-light">
         <div class="card-block text-center pb-1">
             <h5 class="card-title">{{name}}</h5>         
-            <ul>
+            <ul class="border border-3 border-info mb-2">
                 <li>Cuisine: {{cuisine}}</li>
                 <li>Price Range: {{price_range}}</li>
                 <li>Address: {{address}}</li>
-
+                <li class="review-count">Reviews: {{reviewCount}}</li>
             </ul>
         <a href="/restaurants/reviews/{{id}}" type="submit" class="btn btn-primary" id="reviews-btn">See Reviews</a>
         <a href="/restaurants/post/{{id}}" type="submit" class="btn btn-primary" id="post-btn">Submit Review</a>

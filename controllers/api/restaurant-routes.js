@@ -3,30 +3,33 @@ const sequelize = require('../../config/connection');
 const { User, Restaurant, Review} = require('../../models');
 const withAuth = require('../../utils/auth');
 
-//get all restaurants
-router.get('/', (req, res) => {
-    console.log('======================');
-    Restaurant.findAll({
-      attributes: [
+      //get all restaurants 
+      router.get('/', (req, res) => {
+        const revCount = [sequelize.literal(`(
+          SELECT COUNT(*)
+          FROM review
+          WHERE review.restaurant_id = restaurant.id
+      )`),
+      'reviewCount']
+          
+        Restaurant.findAll({
+        attributes: [
         'id',
         'name',
         'cuisine',
         'price_range',
         'address',
-        'created_at'
+        'created_at',
+        revCount
       ],
-      include: [
-        {
-          model: Review,
-          attributes: ['id', 'overall_rating', 'atmosphere_rating', 'food_rating',
-          "service_rating", "review", "user_id", "restaurant_id", 'created_at'],
-          include: {
-            model: User,
-            attributes: ['username']
-          }
+            include: [
+                {
+                model: Review,
+                attributes: ['id', 'overall_rating', 'atmosphere_rating', 'food_rating',
+              'service_rating', 'review', 'user_id', 'restaurant_id', 'created_at'],
         }
-      ]
-    })
+            ]
+        })
       .then(dbRestaurantData => res.json(dbRestaurantData))
       .catch(err => {
         console.log(err);
