@@ -1,9 +1,9 @@
 {{> restaurants-info restaurant }}
 
 <ol class="post-list list-group bg-info">
-  {{!-- {{#each restaurant.reviews as |review|}} --}}
   <li class="list-group-item bg-info">
-    {{> reviews-info restaurant.reviews }}
+    {{> reviews-info-homepage restaurant.reviews }}
   </li>
-  {{!-- {{/each}} --}}
 </ol>
+
+<script src="/javascript/hide-reviews-btn.js"></script>

@@ -3,6 +3,7 @@
     <div class="card align-items-center bg-light mb-3">
         <div class="card-block text-center pb-1">
             <h5 class="card-title">{{restaurant.name}}</h5>
+            <input id="review-id" value={{ id }} name="id" class="d-none">
             <h6 class="card-subtitle mb-2 text-muted">Reviewed by: {{user.username}} on {{format_date created_at}}</h5>          
             
         <div>
@@ -26,7 +27,7 @@
         </div>
         <div class="mb-2">
             <a href="/dashboard/edit/{{id}}" type="submit" class="btn btn-primary" id="edit-btn">Edit Review</a>
-            
+            <a href="/dashboard" type="submit" class="btn btn-danger" id="delete-btn">Delete Review</a>
         </div>
     </div>
     {{/each}}
