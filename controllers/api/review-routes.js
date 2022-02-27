@@ -45,7 +45,6 @@ router.get('/:id', (req, res) => {
 
   //post a review
   router.post('/', withAuth, (req, res) => {
-    // expects => {comment_text: "Great game", user_id: 1, post_id: 2}
     Review.create({
       overall_rating: req.body.overall_rating,
       atmosphere_rating: req.body.atmosphere_rating,
@@ -94,10 +93,17 @@ router.get('/:id', (req, res) => {
   });
 
   //update a review
-  router.put('/:id', (req, res) => {
-    // expects {username: 'Lindelof2', password: 'manchester'}
-    Review.update(req.body, {
-      individualHooks: true,
+  router.put('/:id', withAuth, (req, res) => {
+    Review.update( 
+      {
+        overall_rating: req.body.overall_rating,
+        atmosphere_rating: req.body.atmosphere_rating,
+        food_rating: req.body.food_rating,
+        service_rating: req.body.service_rating,
+        review: req.body.review,
+        user_id: req.session.user_id,
+      },
+      {
       where: {
         id: req.params.id
       }
