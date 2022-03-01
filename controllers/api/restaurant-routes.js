@@ -46,6 +46,7 @@ const withAuth = require('../../utils/auth');
       });
   });
 
+
   //get restaurant by ID
   router.get('/:id', (req, res) => {
     Restaurant.findOne({
