@@ -8,6 +8,8 @@
                 <li>Address: {{address}}</li>
                 <li class="review-count">Reviews: {{reviewCount}}</li>
             </ul>
+            <h5>Average Overall Rating</h5>
+            <input id="overall-rating" name="overall" class="rating" value="{{avgOverallRatings}}"  type="number" data-readonly="true" data-size="xs">
         <a href="/restaurants/reviews/{{id}}" type="submit" class="btn btn-primary" id="reviews-btn">See Reviews</a>
         <a href="/restaurants/post/{{id}}" type="submit" class="btn btn-primary" id="post-btn">Submit Review</a>
         </div>

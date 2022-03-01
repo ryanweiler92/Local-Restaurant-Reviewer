@@ -12,6 +12,15 @@ router.get('/', (req, res) => {
         WHERE review.restaurant_id = restaurant.id
     )`),
     'reviewCount']
+
+    const overallRatings = [sequelize.literal(`(
+        SELECT AVG(overall_rating) 'Average Overall Rating'
+        FROM review  
+        WHERE review.restaurant_id = restaurant.id
+        GROUP BY review.restaurant_id
+    )`),
+    'avgOverallRatings']
+
     Restaurant.findAll({
         attributes: [
             'id',
@@ -20,7 +29,8 @@ router.get('/', (req, res) => {
             'price_range',
             'address',
             'created_at',
-            revCount
+            revCount,
+            overallRatings
           ],
       include: [
         {
